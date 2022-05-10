@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/jquery.min.js"></script>
+    <title>Data</title>
+  </head>
+  <body>
+    <div class="form">
+      total count student : <input type="text" id="tStudent" /> total Subject :
+      <input type="text" id="subject" />
+      <input type="submit" id="createData" />
+    </div>
+    <div id="que"></div>
+    
+    <input type="submit" id="FormSubmit" />
+    <script>
+        var studentName=[];
+        var subjectName=[];
+      var totalStudent;
+      var totalSubject;
+      var a;
+      var obj = new Object();
+      var sub = new Array();
+      $(document).ready(function () {
+          $("#FormSubmit").hide()
+        $("#createData").click(function () {
+          totalStudent = $("#tStudent").val();
+          totalSubject = $("#subject").val();
+
+          console.log(totalStudent);
+          console.log(totalSubject);
+          $(".form").hide();
+          for (let index = 0; index < totalStudent; index++) {
+            console.log("totalStudent " + totalStudent);
+            a = ` <label for"student_${index + 1}" id="student_${index + 1}">student_${
+              index + 1
+            }</label><input type='text' id=student_${index+1} >`;
+            $("#que").append(a);
+            for (let j = 0; j < totalSubject; j++) {
+              console.log("totalSubject" + totalSubject);
+              a = ` <label for"subject_${j + 1}" id="subject_${
+                j + 1
+              }">subject_${j + 1}</label><input type='text' id=subject_${j+1}>`;
+              $("#que").append(a);
+            }
+            $("#que").append("<br>");
+            a = "";
+          }
+
+          $("#subjectSubmit").hide();
+          $("#FormSubmit").show();
+        //   button = "<input type='submit' id='FormSubmit'>";
+        //   $("#que").append(button);
+        });
+
+        $("#FormSubmit").on("click",function () {
+          
+          for (let index = 0; index < totalStudent; index++) {
+            student = $(`input[id^=student_${index+1}]`).val();
+            studentName.push(student);
+            for (let j = 0; j <totalSubject; j++) {
+            subject = $(`input[id^=subject_${j+1}]`).val();
+            studentName.push(subject);
+            }
+            console.log(studentName);
+            console.log(subjectName);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

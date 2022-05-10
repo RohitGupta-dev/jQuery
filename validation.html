@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="validation.js"></script>
+    <style>
+        .firstName,.lastName,.phoneNumber,.email,.Address{
+            color: red; 
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="firstName">first Name</label>
+        <input class="valid" type="text" name="firstName" id="firstName" >
+       <div class="firstName"></div>
+        <br><br>
+        <label for="lastName">last Name</label>
+        <input class="valid" type="text" name="lastName" id="lastName">
+       <div class="lastName"></div>
+        <br><br>
+        <label for="phoneNumber">phone Number</label>
+        <input class="valid" type="text" name="phoneNumber" id="phoneNumber">
+       <div class="phoneNumber"></div>
+        <br><br>
+        <label for="email">email</label>
+        <input class="valid" type="text" name="email" id="email">
+       <div class="email"></div>
+        <br><br>
+        <label for="Address">Address</label>
+        <input class="valid" type="text" name="Address" id="Address">
+       <div class="Address"></div>
+        <br><br>
+        <label for="Gender">Gender</label>
+        <label for="male">male</label>
+        <input  type="radio" name="male" id="male">
+      
+        <label for="female">female</label>
+        <input  type="radio" name="female" id="female">
+       
+        <label for="other">other</label>
+        <input  type="radio" name="other" id="other">
+      
+        <br><br>
+        <label for="city">city</label>
+        <input class="valid" type="text" name="city" id="city">
+       <div class="error"></div>
+        <br><br>
+        <label for="state">state</label>
+        <input class="valid" type="text" name="state" id="state">
+       <div class="error"></div>
+        <br><br>
+        <label for="country">country</label>
+        <input class="valid" type="text" name="country" id="country">
+       <div class="error"></div>
+        <br><br>
+        <button type="submit" id="submit">Submit</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQuery</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+      .secondForm {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="firstOneForm">
+      <label for="TotalCount">student count </label>
+      <input type="text" name="TotalCount" id="TotalCount" />
+      <input type="submit" id="submit" />
+    </div>
+    <div class="secondForm">
+      <label for="studentName">student Name </label>
+      <input type="text" name="studentName" id="studentName" />
+      <label for="Age">Age </label>
+      <input type="text" name="Age" id="Age" />
+     <!-- <label for="marks">marks </label>
+       <label for="math">math</label>
+      <input type="number" name="math" id="math" />
+      <label for="English">English</label>
+      <input type="number" name="English" id="English" />
+      <label for="hindi">hindi</label>
+      <input type="number" name="hindi" id="hindi" /> -->
+      <!-- <label for="percent">percent</label>
+      <input type="text" name="percent" id="percent" /> -->
+      <label for="number">number of subject</label>
+      <input type="text" name="number" id="number"  />
+
+      <input type="submit" id="subjectSubmit" />
+      <div id="que">
+        
+        <input type="submit" id="subjectSubmit" />
+
+      </div>
+    </div>
+    <script>
+
+      class rohit{
+         info="this i m are";
+        constructor(data){
+          this.data=data;
+          console.log(data);
+      
+        }
+        get(rohit){
+          this.rohit =rohit;
+          console.log(rohit);
+        }
+        intoduce (){
+          console.log(this.info);
+        }
+      }
+
+      var  r1 =new rohit("this is constuctor called")
+      r1.get("this is function called")
+      r1.intoduce()
+      var studentTotal;
+      var studentName;
+      var Age;
+      var math;
+      var English;
+      var hindi;
+      var numbers;
+      var studentData = {};
+      var allStudentData = [];
+      var marks = {};
+
+      $(document).ready(function () {
+        $("#submit").click(function () {
+          studentTotal = $("TotalCount").val();
+          $(".firstOneForm").hide();
+          $(".secondForm").show();
+
+        });
+        $("#subjectSubmit").click(function () {
+            numbers =   $("#number").val();
+             a ="<br><input type='text' ><br>";
+            for (let index = 0; index < numbers; index++) {
+              $("#que").append(a);
+                
+            }
+            $("#subjectSubmit").hide();
+            button="<input type='submit' id='data'>";
+            $("#que").append(button);
+            numbers=0;
+
+        });
+
+    // $("#data").click(function () {
+    //   alert("you clicked ")
+      
+    // });
+    $('#' + data).click(function() {
+            alert("this does not work");
+
+        });
+
+        $("#Datasubmit").click(function () {
+          studentName = $("#studentName").val();
+          Age = $("#Age").val();
+          math = $("#math").val();
+          English = $("#English").val();
+          hindi = $("#hindi").val();
+          
+          marks.math = math;
+          marks.English = English;
+          marks.hindi = hindi;
+        var pre = parseInt(hindi)+parseInt(math)+parseInt(English)*100/3;
+        $("#percent").val(pre);
+
+          studentData.studentName = studentName;
+          studentData.Age = Age;
+          studentData.marks = marks;
+          studentData.persentage = pre;
+          console.log(studentData);
+          allStudentData.push(studentData);
+          console.log(allStudentData);
+          studentData = {};
+          marks = {};
+          $("#studentName").val();
+          $("#Age").val();
+          $("#math").val();
+          $("#English").val();
+          $("#hindi").val();
+        });
+      });
+    </script>
+  </body>
+</html>
