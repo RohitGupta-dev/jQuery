@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+
+    <input type="text" name="data" id="data">
+    <button id="submit">submit</button>
+    <table id="table">
+
+    </table>
+    <script>
+        var data="";
+        var count=0 ;
+       
+        $(document).ready(function () {
+            $("#submit").on("click",function () {
+                data=$("#data").val();
+               
+                tr="<tr id="+"tr_"+count+"> </tr>";
+                $("#table").append(tr)
+                td="<td>"+ data+ "</td>";
+             
+                $("#tr_"+count).append(td);
+                button="<button id= 'Delete_' class='btn' " +count+">Delete</button>"
+                button2="<button id='Pending_' class='pending' "+count+">Pending</button>"
+                $("#tr_"+count).append(button);
+                $("#tr_"+count).append(button2);
+                $(".btn").click(function(){
+                    $(this).parent().remove()
+                })
+                $(".pending").click(function(){
+                    $(this).parent().css({
+                        "background-color": "black",
+                        color: "white" ,
+                    })
+                })
+                data="";
+                count++;
+                td="";
+            })
+           
+        })
+    </script>
+</body>
+</html>

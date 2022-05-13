@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        parent
+        <ul>
+            gjelgjlgw
+            <li>parent li
+                <span>span</span>
+            </li>
+            <li>parent li
+                <span>span</span>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <p>paragraph <span>span</span></p>
+    </div>
+    <script>
+      $(document).ready(function () {
+          
+          $("span").parent().css(
+              {"border":" solid 2px green","padding":"10px","margin":"40px"}
+              
+              )
+          $("li").parent().css(
+              {"border":" solid 2px blue","padding":"10px" ,"margin":"5PX"}
+              
+              )
+          $("li").children("span").css(
+              {"border":" solid 2px pink","padding":"10px","display":"block"}
+              
+              )
+          $("ul").parent().css(
+              {"border":" solid 2px red","padding":"10px"}
+              
+              )
+              $("p").parent().css(
+              {"border":" solid 2px orange","padding":"10px" , "margin":"10px"}
+              
+              )
+              $("p").children("span").css(
+              {"border":" solid 2px yellow","padding":"10px", "margin":"10px","display":"block"}
+              
+              )
+
+            //   $("ul").parent().css(
+            //       {"border":" solid 2px green"}
+                  
+            //       )
+                })
+          
+        
+
+        
+    </script>
+</body>
+</html>

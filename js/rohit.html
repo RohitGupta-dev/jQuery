@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+  </head>
+  <body>
+    <label for="name">name</label>
+    <input type="text" name="name" id="name" />
+    <input type="submit" value="submit" id="submit" />
+    <div id="div1"></div>
+    <script>
+      $(document).ready(function () {
+        $("#submit").click(function () {
+          $("#div1").load("https://tricksier-slopes.000webhostapp.com/rohit.php");
+        });
+      });
+    </script>
+  </body>
+</html>

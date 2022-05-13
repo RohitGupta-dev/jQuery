@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="div">div</button>
+    <button id="ul">ul</button>
+    <button id="li">li</button>
+    <button id="span">span</button>
+    <button id="append">append</button>
+    <button id="prepend">prepend</button>
+
+    <script>
+      $(document).ready(function () {
+        $("#append").hide();
+            $("#prepend").hide();
+        $("button").css({"padding":"10px","backgroundColor":"black","color":"white"})
+        $("#div").on("click",function(){
+            
+            $("#div").hide();
+            $("#ul").hide();
+            $("#li").hide();
+            $("#span").hide();
+            $("#append").show();
+            $("#prepend").show();
+            
+            
+        })
+       
+      
+
+
+
+      });
+    </script>
+  </body>
+</html>
