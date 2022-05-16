@@ -109,24 +109,32 @@
         $(".data").hide();
         $("#danger").hide();
         $("#success").on("click", function () {
+          var i =confirm("are u want that");
+          if(i==true){
           $("#danger").show();
           $("#success").hide();
-          $("#status span").html("Running Mode").css("color", "green");
+          $("#status span").html("Running Mode").css("color", "green");}
         });
         $("#danger").on("click", function () {
+          var i =confirm("are u want that");
+          if(i==true){
           $("#danger").hide();
           $("#success").show();
-          $("#status span").html("Stopped Mode").css("color", "red");
+          $("#status span").html("Stopped Mode").css("color", "red");}
         });
         $("#warning").on("click", function () {
+          var i =confirm("are u want that");
+          if(i==true){
           $("#status span").html("Schdule MODE ON");
           var date = $("#date").val();
-          $("#modal-body").text(date);
+          $("#modal-body").text(date);}
         });
         $("#info").on("click", function () {
+          var i =confirm("are u want that");
+          if(i==true){
           $("#danger").hide();
           $("#success").show();
-          $("#status span").html("Pending Mode On").css("color", "blue");
+          $("#status span").html("Pending Mode On").css("color", "blue");}
         });
       });
       

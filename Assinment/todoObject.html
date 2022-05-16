@@ -17,8 +17,8 @@
       var arr = new Array();
       var data;
       var count = 1;
-      var del = "<button id='delete'>delete</button>";
-      var pen = "<button id='pending'>pending</button>";
+      var del = "<button class='delete'>delete</button>";
+      var pen = "<button class='pending'>pending</button>";
 
       $(document).ready(function () {
         $("#table").hide();
@@ -54,15 +54,33 @@
             // console.log(arr[i].id);
           }
         }
+        $("table").on("click",".delete", function () {
+            alert('click on del');
+            // $(this).closest('tr').remove();
+            var idx=$(this).closest('tr').children().eq(1).text();
+            console.log($(this).closest("tr").remove());
+            console.log(idx);
+            console.log(arr);
+          
+            // for(var i=0; i<arr.length; i++)
+            // {
+            //     if(arr[i].data ===idx)
+            //     {
+            //         arr.splice(i,1);
+            //     }
+            // }
 
-        // $("#delete")
-        $("#delete").on("click", function () {
-            alert();
-        //   $(this).parent().remove();
-          $(this).remove();
+
+            arr.forEach((v,i) =>{
+              console.log(v)
+              if(arr[i].data ===idx){
+                    arr.splice(i,1);
+                }
+
+            })
         });
-        $("#pending").click(function () {
-          $(this).parent().css({
+        $("table").on("click",".pending",function () {
+          $(this).closest('tr').css({
             "background-color": "black",
             color: "white",
           });
