@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <script src="../js/jquery.min.js"></script>
+  </head>
+  <body>
+    <input type="text" name="data" id="data" />
+    <button id="save">Save</button>
+    <table border="2" id="table" width="100%"></table>
+    <script>
+      var sample = new Object();
+      //   var main = new Object();
+      var arr = new Array();
+      var data;
+      var count = 1;
+      var del = "<button id='delete'>delete</button>";
+      var pen = "<button id='pending'>pending</button>";
+
+      $(document).ready(function () {
+        $("#table").hide();
+        $("#save").on("click", function () {
+          data = $("#data").val();
+          sample.id = count;
+          sample.data = data;
+          sample.DeleteButton = del;
+          sample.pendingButton = pen;
+        //   console.log(sample);
+          arr.push(sample);
+        //   console.log(arr);
+          // main.`{count}`=arr;
+          // arr=[];
+          sample = {};
+          count++;
+          show();
+        });
+        function show() {
+          $("#table").empty();
+          $("#table").show();
+          // td="<td></td>";
+          for (let i = 0; i < arr.length; i++) {
+              tr = "<tr id=tr_"+i+"></tr>";
+            $("#table").append(tr);
+            td = "<td>" + arr[i].id + "</td>";
+            td += "<td>" + arr[i].data + "</td>";
+            td += "<td>" + arr[i].pendingButton + "</td>";
+            td += "<td>" + arr[i].DeleteButton + "</td>";
+            $("#tr_"+i).append(td);
+            // trClose="</tr>";
+            // $("#table").append(trClose);
+            // console.log(arr[i].id);
+          }
+        }
+
+        // $("#delete")
+        $("#delete").on("click", function () {
+            alert();
+        //   $(this).parent().remove();
+          $(this).remove();
+        });
+        $("#pending").click(function () {
+          $(this).parent().css({
+            "background-color": "black",
+            color: "white",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
