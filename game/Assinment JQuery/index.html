@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../js/jquery.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="UserName">UserName</label>
+      <input type="text" name="UserName" id="UserName" />
+      <label for="Password">Password</label>
+      <input type="text" name="Password" id="Password" />
+      <label for="cars"> car:</label>
+
+      <select name="cars" id="cars">
+        <option value="SELECTED">SELECTED</option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+      <button type="button">LogIn</button>
+    </form>
+    <script>
+      var UserName = "";
+      var Password = "";
+      $(document).ready(function () {
+        $("button").prop("disabled", true);
+
+        $(document).on("change", function () {
+          UserName = $("#UserName").val();
+          Password = $("#Password").val();
+          var t = " <option value="+ UserName + ">"+ UserName + "</option>";
+          $("#cars").append(t);
+          var rh =$("#cars").val();
+          console.log(rh);
+          
+          if (UserName != "" && Password != "" && rh!="SELECTED") {
+            $("button").prop("disabled", false);
+          }
+        });
+        $("button").on("click", function () {
+          var strongRegex = new RegExp(
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"
+          );
+          validPass = strongRegex.test(Password);
+          if (!validPass) {
+            var r = $("<span></span>")
+              .text("PassWord must right")
+              .css("color", "red");
+            console.log(r);
+            if (r) $("body").append(r);
+          } else {
+            console.log("dhfkshfkdhkas");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

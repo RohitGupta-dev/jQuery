@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+  </head>
+  <body>
+    <h3 id="rowTotalCount"></h3>
+    <h3 id="colTotalCount"></h3>
+    <!-- Row: <input type="text" name="row" id="row" /> col:
+    <input type="text" name="col" id="col" /> -->
+    <button id="createTable">createTable</button>
+    <button id="createRow">createRow</button><br>
+    <br>
+    <input type="text" name="col" id="col" placeholder="add Column Value" /><br>
+    <button id="addCol">addCol</button>
+    <script>
+      var row;
+      var count=1;
+      var colCount=1;
+      var col;
+      var insertRow = "";
+      var inserTable = "";
+      $(document).ready(function () {
+
+        $("#createTable").on("click",function () {
+          
+          inserTable = $("<table id='loadTable' border='2px' style='margin:30px'></table>");
+            $("body").append(inserTable);
+            $("#createTable").hide();
+        })
+
+        $("#col").hide();
+        $("#createRow").on("click", function () {
+          // inserTable = $("<table id='loadTable'></table>");
+          // $("body").append(inserTable);
+          insertRow = $("<tr id=" +"tr_"+ count+"></tr>");
+          $("#loadTable").append(insertRow); 
+          $("#col").show();  
+          $("#rowTotalCount").text(" total Row's  "+count);
+          console.log("count of row is "+count);
+
+          count++;
+
+        });
+        $("#addCol").on("click", function () {
+
+          $("#col").show();
+          // insertRow = $("<tr id=" +"tr_"+ count+"></tr>");
+          // $("#loadTable").append(insertRow);  
+          var data= $("#col").val();
+          console.log(data);
+          if(data!=""&& data!=" "){
+            insercol = $("<td>"+ data+"</td>");
+            scount= count-1;
+            console.log(scount);
+            $("#tr_"+scount).append(insercol);
+            $("#col").val("");
+            // console.log("count  "+count);
+           
+            $("#colTotalCount").text(" total col's  "+colCount);
+            console.log("count of column value  "+colCount);
+            colCount++;
+
+          }
+
+        
+        });
+
+      });
+    </script>
+  </body>
+</html>

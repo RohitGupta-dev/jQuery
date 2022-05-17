@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="trigger">Trigger</div>
+    <div class="result"></div>
+    <div class="log"></div>
+    <ul class="msg"></ul>
+    <script>
+      //   $(document).ajaxComplete(function (event, request, settings) {
+      //     $(".msg").append("<li>Request Complete.</li>");
+      //   });
+      //       $(document).ajaxComplete(function () {
+      //         $(".log").text("Triggered ajaxComplete handler.");
+      //       });
+      //       $(".trigger").click(function () {
+      //         $(".result").load("Ajax/test.html");
+      //       });
+      //     $(document).ajaxComplete(function (event, xhr, settings) {
+      //         console.log(event);
+      //         console.log(xhr);
+      //         console.log(settings);
+      //       if (settings.url === "Ajax/test.html") {
+      //         $(".log").text(
+      //           "Triggered ajaxComplete handler. The result is " + xhr.responseText
+      //         );
+      //       }
+      //       else{
+      //           console.log("kldfkas;lf");
+      //       }
+      //     });
+      $(".trigger").click(function () {
+        $(".result").load("ajax/test.html",function (responseTxt, statusTxt, xhr) {
+              // console.log(responseTxt);
+              // console.log(statusTxt);
+              // console.log(xhr);
+            if (statusTxt == "success")
+              alert("External content loaded successfully!");
+            if (statusTxt == "error")
+              alert("Error: " + xhr.status + ": " + xhr.statusText);
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

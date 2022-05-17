@@ -55,7 +55,11 @@
           }
         }
         $("table").on("click",".delete", function () {
-            alert('click on del');
+            // alert('click on del');
+            console.log($(this).closest('tr'));
+            console.log($(this).closest('tr').children());
+            console.log($(this).closest('tr').children().eq(1));
+            console.log($(this).closest('tr').children().eq(1).text());
             // $(this).closest('tr').remove();
             var idx=$(this).closest('tr').children().eq(1).text();
             console.log($(this).closest("tr").remove());
