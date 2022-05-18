@@ -35,17 +35,34 @@
       //           console.log("kldfkas;lf");
       //       }
       //     });
+      // $(".trigger").click(function () {
+      //   $(".result").load("ajax/test.html",function (responseTxt, statusTxt, xhr) {
+      //         // console.log(responseTxt);
+      //         // console.log(statusTxt);
+      //         // console.log(xhr);
+      //       if (statusTxt == "success")
+      //         alert("External content loaded successfully!");
+      //       if (statusTxt == "error")
+      //         alert("Error: " + xhr.status + ": " + xhr.statusText);
+      //     }
+      //   );
+      // });
+      // https://tricksier-slopes.000webhostapp.com/rohit.php
+      // https://tricksier-slopes.000webhostapp.com/rohit.php
+      // $.post(
+      //   "https://tricksier-slopes.000webhostapp.com/rohit.php",
+      //   function (data) {
+      //     $(".result").html(data);
+      //     console.log(data);
+      //   }
+      // );
       $(".trigger").click(function () {
-        $(".result").load("ajax/test.html",function (responseTxt, statusTxt, xhr) {
-              // console.log(responseTxt);
-              // console.log(statusTxt);
-              // console.log(xhr);
-            if (statusTxt == "success")
-              alert("External content loaded successfully!");
-            if (statusTxt == "error")
-              alert("Error: " + xhr.status + ": " + xhr.statusText);
-          }
-        );
+         student={sid:2,name:"sourabh",cls:"mca",gender:"male",age:23} ;
+         myJSON = JSON.stringify(student);
+        $.post("https://tricksier-slopes.000webhostapp.com/rohit.php",myJSON , function (result) {
+          $(".result").html("ID is student is " + result.sid + "<br> Name is  " + result.name+  "<br> class is " + result.cls + "<br> Gender is " + result.gender + "<br>  Age is " + result.age);
+          // $(".result").html(result.sid);
+        });
       });
     </script>
   </body>
